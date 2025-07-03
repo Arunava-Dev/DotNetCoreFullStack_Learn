@@ -8,7 +8,7 @@ namespace TechnologyKeeda.UI.Controllers
 {
     //To pass data from controller to View we can Use-> 1.Viewbag 2.ViewData 3.TempData
     // Viewbag.Dynamic_Variable - Stores Dynamic Variable -> Works for single http request
-    //ViewData["key"]=Value - Store Dictionary Tye Data -> Works for single http request
+    //ViewData["key"]=Value - Store Dictionary Typpe Data -> Works for single http request
     //TempData["key"]=Value - Stores Dictionary Data -> Works for two http requests-hv two method - 1.keep(),2.peek()
 
     public class StatesController : Controller

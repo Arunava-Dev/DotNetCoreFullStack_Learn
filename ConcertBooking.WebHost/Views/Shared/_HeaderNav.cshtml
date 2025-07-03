@@ -1,0 +1,51 @@
+﻿@using ConcertBooking.Infrastructure
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+            <img class="logo-img" src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/e0/Logo_Arte_Concert.svg/2560px-Logo_Arte_Concert.svg.png" />
+
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+
+                @if (User.IsInRole(GlobalConfiguration.Admin_Role))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Concerts" asp-action="Index">Concerts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Venues" asp-action="Index">Venues</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Artist" asp-action="Index">Artists</a>
+                    </li>
+
+                   @*  <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CMS</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Show</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </li> *@
+                }
+                @if(User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Tickets" asp-action="MyTickets">Tickets</a>
+                    </li>
+                }
+            </ul>
+            <partial name = "_LoginPartial"/>
+            @* <form class="d-flex"> *@
+            @*     <input class="form-control me-sm-2" type="search" placeholder="Search"> *@
+            @*     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> *@
+            @* </form> *@
+        </div>
+    </div>
+</nav>
